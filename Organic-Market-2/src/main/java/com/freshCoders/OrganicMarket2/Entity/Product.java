@@ -18,6 +18,7 @@ public class Product {
     private Double price;
 
 
+
     public Integer getId() {
         return id;
     }
