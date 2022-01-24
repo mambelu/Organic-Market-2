@@ -16,9 +16,12 @@ public class Product {
     private String name;
     private String measurement;
     private Double price;
+    private String description;
 
 
+    public Product(){
 
+    }
     public Integer getId() {
         return id;
     }
@@ -65,6 +68,27 @@ public class Product {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", categories='" + categories + '\'' +
+                ", quantity=" + quantity +
+                ", name='" + name + '\'' +
+                ", measurement='" + measurement + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
 
