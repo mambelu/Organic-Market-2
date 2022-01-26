@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/Product")
 public class ProductController {
 
-    private ProductRepository productRepository;
+    final ProductRepository productRepository;
     public ProductController(@Autowired ProductRepository productRepository ){
         this.productRepository=productRepository;
 
     }
-    public ProductController(){
-
-    }
+//    public ProductController(){
+//
+//    }
 
     @GetMapping
     public Iterable<Product>getAllProduct(){
