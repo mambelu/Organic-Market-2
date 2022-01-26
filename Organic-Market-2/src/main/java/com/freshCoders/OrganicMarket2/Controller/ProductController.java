@@ -22,11 +22,11 @@ public class ProductController {
     @GetMapping
     public List<Product> getAllProduct(){
 
-        return ProductService.all();
+        return productService.all();
     }
-//    @PostMapping
-//    public Product addProduct(@RequestBody Product product){
-//
-//        return productRepository.save(product);// need to be replace with productService
-//    }
+  @PostMapping
+    public Product addProduct(@RequestBody Product product){
+
+        return productService.save(product);// need to be replace with productService
+  }
 }
