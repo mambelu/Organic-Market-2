@@ -5,6 +5,7 @@ import com.freshCoders.OrganicMarket2.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,6 +19,14 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public List<Product> all() {
-        return null;
+        List<Product> result = new ArrayList<>();
+        productRepository.findAll().forEach( result::add );
+        return result;
+
+    }
+
+    @Override
+    public Product save(Product product) {
+        productRepository.save(product);
     }
 }
