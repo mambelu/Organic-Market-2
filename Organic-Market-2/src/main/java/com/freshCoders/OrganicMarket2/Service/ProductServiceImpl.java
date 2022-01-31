@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -28,5 +29,14 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public Product save(Product product) {
         return productRepository.save(product);
+    }
+
+    @Override
+    public Optional<Product> getById(Integer id) {
+        Optional<Product> productById = this.productRepository.findById(id);
+        if(!productById.isPresent()){
+          return null;
+        }
+        return this.productRepository.findById(id);
     }
 }
