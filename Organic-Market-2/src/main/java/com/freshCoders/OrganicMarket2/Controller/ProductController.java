@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/Product")
@@ -19,14 +20,21 @@ public class ProductController {
     }
 
 
-    @GetMapping
+    @GetMapping("/listProduct")
     public List<Product> getAllProduct(){
 
         return productService.all();
     }
-  @PostMapping
+    @PostMapping("/createProduct")
     public Product addProduct(@RequestBody Product product){
 
-        return productService.save(product);// need to be replace with productService
-  }
+        return productService.save(product);
+    }
+
+    @GetMapping("/listProduct/{id}")
+    public Optional<Product> getProductById(@PathVariable ("id") Integer id){
+        return productService.getById(id);
+    }
+
+
 }
